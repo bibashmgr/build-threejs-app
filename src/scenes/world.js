@@ -13,9 +13,10 @@ export default class World {
     this.scene = this.experience.scene;
     this.resources = this.experience.resources;
 
-    // this.resources.on('ready', () => {});
-    this.environment = new Environment();
-    this.model = new Model();
+    this.resources.on('ready', () => {
+      this.environment = new Environment();
+      this.model = new Model();
+    });
   }
 
   resize() {}

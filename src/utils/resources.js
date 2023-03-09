@@ -15,7 +15,14 @@ export default class Resources extends EventEmitter {
 
     this.assets = assets;
 
-    this.items = {};
+    this.items = {
+      gltfModel: {},
+      basicTexture: {},
+      normalTexture: {},
+      cubeTexture: {},
+      audio: {},
+      video: {},
+    };
     this.queue = this.assets.length;
     this.loaded = 0;
 
@@ -33,6 +40,10 @@ export default class Resources extends EventEmitter {
     this.loaders.ktx2Loader = new KTX2Loader();
     this.loaders.ktx2Loader.setTranscoderPath('/basis/');
     this.loaders.ktx2Loader.detectSupport(this.renderer.renderer);
+
+    this.loaders.textureLoader = new THREE.TextureLoader();
+    this.loaders.cubeTextureLoader = new THREE.CubeTextureLoader();
+    this.loaders.audioLoader = new THREE.AudioLoader();
   }
 
   startLoading() {
@@ -45,7 +56,20 @@ export default class Resources extends EventEmitter {
         this.loaders.ktx2Loader.load(asset.path, (file) => {
           this.singleAssetLoaded(asset, file);
         });
-      } else if (asset.type === 'videoTexture') {
+      } else if (asset.type === 'normalTexture') {
+        this.loaders.textureLoader.load(asset.path, (file) => {
+          file.encoding = THREE.sRGBEncoding;
+          this.singleAssetLoaded(asset, file);
+        });
+      } else if (asset.type === 'cubeTexture') {
+        this.loaders.cubeTextureLoader.load(asset.path, (file) => {
+          this.singleAssetLoaded(asset, file);
+        });
+      } else if (asset.type === 'audio') {
+        this.loaders.audioLoader.load(asset.path, (buffer) => {
+          this.singleAssetLoaded(asset, buffer);
+        });
+      } else if (asset.type === 'video') {
         this.video = {};
         this.videoTexture = {};
 
