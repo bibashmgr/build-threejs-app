@@ -5,7 +5,7 @@ import Experience from '../experience.js';
 
 // scenes
 import Environment from './environment.js';
-import Model from './model.js';
+import Box from './box.js';
 
 export default class World {
   constructor() {
@@ -15,15 +15,15 @@ export default class World {
 
     this.resources.on('ready', () => {
       this.environment = new Environment();
-      this.model = new Model();
+      this.box = new Box();
     });
   }
 
   resize() {}
 
   update() {
-    if (this.model) {
-      this.model.update();
+    if (this.box) {
+      this.box.update();
     }
     if (this.environment) {
       this.environment.update();
