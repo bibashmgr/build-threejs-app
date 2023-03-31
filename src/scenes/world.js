@@ -6,6 +6,7 @@ import Experience from '../experience.js';
 // scenes
 import Environment from './environment.js';
 import Box from './box.js';
+import Plane from './plane.js';
 
 export default class World {
   constructor() {
@@ -16,6 +17,7 @@ export default class World {
     this.resources.on('ready', () => {
       this.environment = new Environment();
       this.box = new Box();
+      this.plane = new Plane();
     });
   }
 

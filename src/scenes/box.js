@@ -6,17 +6,17 @@ import Experience from '../experience.js';
 // helpers
 import BakedModel from '../helpers/bakeModel.js';
 
-export default class Model {
+export default class Box {
   constructor() {
     this.experience = new Experience();
     this.scene = this.experience.scene;
     this.resources = this.experience.resources;
 
-    this.bakeModel();
-    this.setModel();
+    this.bakeBox();
+    this.setBox();
   }
 
-  bakeModel() {
+  bakeBox() {
     this.model = new BakedModel(
       this.resources.items.boxModel,
       this.resources.items.boxTexture,
@@ -24,12 +24,13 @@ export default class Model {
     );
   }
 
-  setModel() {
+  setBox() {
     this.actualModel = this.model.getModel();
+    this.actualModel.position.y = 1;
     this.scene.add(this.actualModel);
   }
 
-  setAnimation() {
+  animateBox() {
     this.actualModel.rotation.x += 0.01;
     this.actualModel.rotation.y += 0.01;
     this.actualModel.rotation.z += 0.01;
@@ -38,6 +39,6 @@ export default class Model {
   resize() {}
 
   update() {
-    this.setAnimation();
+    this.animateBox();
   }
 }
