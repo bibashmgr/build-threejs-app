@@ -1,8 +1,8 @@
 export default [
   // {
-  //   name: '',
-  //   type: ['glbModel', 'basicTexture', 'videoTexture'],
-  //   path: '',
+  //   name: 'asset_name',
+  //   type: ['glbModel', 'basicTexture', 'normalTexture', 'cubeTexture', 'audio' ,'video'],
+  //   path: 'asset_path',
   // },
   {
     name: 'boxModel',

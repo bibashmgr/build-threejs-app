@@ -27,6 +27,9 @@ export default class World {
     if (this.box) {
       this.box.update();
     }
+    if (this.plane) {
+      this.plane.update();
+    }
     if (this.environment) {
       this.environment.update();
     }

@@ -15,14 +15,7 @@ export default class Resources extends EventEmitter {
 
     this.assets = assets;
 
-    this.items = {
-      gltfModel: {},
-      basicTexture: {},
-      normalTexture: {},
-      cubeTexture: {},
-      audio: {},
-      video: {},
-    };
+    this.items = {};
     this.queue = this.assets.length;
     this.loaded = 0;
 
