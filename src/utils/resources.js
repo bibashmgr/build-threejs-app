@@ -33,7 +33,7 @@ export default class Resources extends EventEmitter {
 
     this.loaders.ktx2Loader = new KTX2Loader();
     this.loaders.ktx2Loader.setTranscoderPath('/basis/');
-    this.loaders.ktx2Loader.detectSupport(this.renderer.renderer);
+    this.loaders.ktx2Loader.detectSupport(this.renderer.webglRenderer);
 
     this.loaders.textureLoader = new THREE.TextureLoader();
     this.loaders.cubeTextureLoader = new THREE.CubeTextureLoader();
@@ -53,7 +53,7 @@ export default class Resources extends EventEmitter {
         });
       } else if (asset.type === 'normalTexture') {
         this.loaders.textureLoader.load(asset.path, (file) => {
-          file.encoding = THREE.sRGBEncoding;
+          file.encoding = THREE.SRGBColorSpace;
           this.singleAssetLoaded(asset, file);
         });
       } else if (asset.type === 'cubeTexture') {

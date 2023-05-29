@@ -21,7 +21,17 @@ export default class World {
     });
   }
 
-  resize() {}
+  resize() {
+    if (this.box) {
+      this.box.resize();
+    }
+    if (this.plane) {
+      this.plane.resize();
+    }
+    if (this.environment) {
+      this.environment.resize();
+    }
+  }
 
   update() {
     if (this.box) {

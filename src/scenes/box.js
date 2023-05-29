@@ -1,5 +1,3 @@
-import * as THREE from 'three';
-
 // src
 import Experience from '../experience.js';
 
@@ -10,6 +8,7 @@ export default class Box {
   constructor() {
     this.experience = new Experience();
     this.scene = this.experience.scene;
+    this.time = this.experience.time;
     this.resources = this.experience.resources;
 
     this.bakeBox();
@@ -31,9 +30,9 @@ export default class Box {
   }
 
   animateBox() {
-    this.actualModel.rotation.x += 0.01;
-    this.actualModel.rotation.y += 0.01;
-    this.actualModel.rotation.z += 0.01;
+    this.actualModel.rotation.x = this.time.elapsed * 0.0005;
+    this.actualModel.rotation.y = this.time.elapsed * 0.0005;
+    this.actualModel.rotation.z = this.time.elapsed * 0.0005;
   }
 
   resize() {}

@@ -8,6 +8,7 @@ import Renderer from './renderer.js';
 import Sizes from './utils/sizes.js';
 import Time from './utils/time.js';
 import Resources from './utils/resources.js';
+import Helpers from './utils/helpers.js';
 
 // config
 import assets from './config/assets.js';
@@ -31,6 +32,7 @@ export default class Experience {
     this.camera = new Camera();
     this.renderer = new Renderer();
     this.resources = new Resources(assets);
+    this.helpers = new Helpers();
 
     this.world = new World();
 
@@ -45,6 +47,7 @@ export default class Experience {
   resize() {
     this.camera.resize();
     this.renderer.resize();
+    this.world.resize();
   }
 
   update() {
