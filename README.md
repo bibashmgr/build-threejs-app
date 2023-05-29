@@ -7,8 +7,8 @@ A boilerplate/starter project for quickly building three.js app using Vite & Thr
 __Clone the repo:__
 
 ```
-git clone --depth 1 https://github.com/bibashmgr/vite-three-js-boilerplate
-cd vite-three-js-boilerplate
+git clone --depth 1 https://github.com/bibashmgr/three-js-boilerplate
+cd three-js-boilerplate
 ```
 
 __Install the dependencies:__
