@@ -3,6 +3,7 @@ import { EventEmitter } from 'events';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 import { KTX2Loader } from 'three/examples/jsm/loaders/KTX2Loader.js';
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
 
 // src
 import Experience from '../experience.js';
@@ -37,6 +38,7 @@ export default class Resources extends EventEmitter {
     this.loaders.textureLoader = new THREE.TextureLoader();
     this.loaders.cubeTextureLoader = new THREE.CubeTextureLoader();
     this.loaders.audioLoader = new THREE.AudioLoader();
+    this.loaders.fontLoader = new FontLoader();
   }
 
   startLoading() {
@@ -62,6 +64,10 @@ export default class Resources extends EventEmitter {
         this.loaders.audioLoader.load(asset.path, (buffer) => {
           this.singleAssetLoaded(asset, buffer);
         });
+      } else if (asset.type === 'font') {
+        this.loaders.fontLoader.load(asset.path, (buffer) => {
+          this.singleAssetLoaded(asset, buffer);
+        });
       } else if (asset.type === 'video') {
         this.video = {};
         this.videoTexture = {};
@@ -81,7 +87,7 @@ export default class Resources extends EventEmitter {
         this.videoTexture[asset.name].minFilter = THREE.NearestFilter;
         this.videoTexture[asset.name].magFilter = THREE.NearestFilter;
         this.videoTexture[asset.name].generateMipmaps = false;
-        this.videoTexture[asset.name].encoding = THREE.sRGBEncoding;
+        this.videoTexture[asset.name].encoding = THREE.SRGBColorSpace;
 
         this.singleAssetLoaded(asset, this.videoTexture[asset.name]);
       }
