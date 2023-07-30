@@ -1,7 +1,6 @@
 import * as THREE from 'three';
 
-// src
-import Experience from '../experience.js';
+import Experience from '../Experience.js';
 
 export default class Environment {
   constructor() {

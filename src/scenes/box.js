@@ -1,8 +1,7 @@
-// src
-import Experience from '../experience.js';
+import Experience from '../Experience.js';
 
 // helpers
-import BakedModel from '../helpers/bakeModel.js';
+import BakedModel from '../helpers/BakeModel.js';
 
 export default class Box {
   constructor() {
@@ -18,13 +17,12 @@ export default class Box {
 
     this.bakeBox();
     this.setBox();
-    this.setDebugger();
   }
 
   bakeBox() {
     this.model = new BakedModel(
-      this.resources.items.boxModel,
-      this.resources.items.boxTexture,
+      this.resources.items.gltfModel.boxModel,
+      this.resources.items.texture.boxTexture,
       this.paramters.size
     );
   }

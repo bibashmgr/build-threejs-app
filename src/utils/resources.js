@@ -2,21 +2,21 @@ import * as THREE from 'three';
 import { EventEmitter } from 'events';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
-import { KTX2Loader } from 'three/examples/jsm/loaders/KTX2Loader.js';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
-
-// src
-import Experience from '../experience.js';
 
 export default class Resources extends EventEmitter {
   constructor(assets) {
     super();
-    this.experience = new Experience();
-    this.renderer = this.experience.renderer;
 
     this.assets = assets;
 
-    this.items = {};
+    this.items = {
+      gltfModel: {},
+      texture: {},
+      cubeTexture: {},
+      audio: {},
+      font: {},
+    };
     this.queue = this.assets.length;
     this.loaded = 0;
 
@@ -26,34 +26,27 @@ export default class Resources extends EventEmitter {
 
   setLoaders() {
     this.loaders = {};
-    this.loaders.gltfLoader = new GLTFLoader();
+    this.loaders.gltfLoader = new GLTFLoader(this.loadingManager);
     this.loaders.dracoLoader = new DRACOLoader();
     this.loaders.dracoLoader.setDecoderPath('/draco/');
     this.loaders.gltfLoader.setDRACOLoader(this.loaders.dracoLoader);
 
-    this.loaders.ktx2Loader = new KTX2Loader();
-    this.loaders.ktx2Loader.setTranscoderPath('/basis/');
-    this.loaders.ktx2Loader.detectSupport(this.renderer.webglRenderer);
-
-    this.loaders.textureLoader = new THREE.TextureLoader();
-    this.loaders.cubeTextureLoader = new THREE.CubeTextureLoader();
-    this.loaders.audioLoader = new THREE.AudioLoader();
-    this.loaders.fontLoader = new FontLoader();
+    this.loaders.textureLoader = new THREE.TextureLoader(this.loadingManager);
+    this.loaders.cubeTextureLoader = new THREE.CubeTextureLoader(
+      this.loadingManager
+    );
+    this.loaders.audioLoader = new THREE.AudioLoader(this.loadingManager);
+    this.loaders.fontLoader = new FontLoader(this.loadingManager);
   }
 
   startLoading() {
     for (const asset of this.assets) {
-      if (asset.type === 'glbModel') {
+      if (asset.type === 'gltfModel') {
         this.loaders.gltfLoader.load(asset.path, (file) => {
           this.singleAssetLoaded(asset, file);
         });
-      } else if (asset.type === 'basicTexture') {
-        this.loaders.ktx2Loader.load(asset.path, (file) => {
-          this.singleAssetLoaded(asset, file);
-        });
-      } else if (asset.type === 'normalTexture') {
+      } else if (asset.type === 'texture') {
         this.loaders.textureLoader.load(asset.path, (file) => {
-          file.encoding = THREE.SRGBColorSpace;
           this.singleAssetLoaded(asset, file);
         });
       } else if (asset.type === 'cubeTexture') {
@@ -87,7 +80,7 @@ export default class Resources extends EventEmitter {
         this.videoTexture[asset.name].minFilter = THREE.NearestFilter;
         this.videoTexture[asset.name].magFilter = THREE.NearestFilter;
         this.videoTexture[asset.name].generateMipmaps = false;
-        this.videoTexture[asset.name].encoding = THREE.SRGBColorSpace;
+        this.videoTexture[asset.name].colorSpace = THREE.SRGBColorSpace;
 
         this.singleAssetLoaded(asset, this.videoTexture[asset.name]);
       }
@@ -95,7 +88,7 @@ export default class Resources extends EventEmitter {
   }
 
   singleAssetLoaded(asset, file) {
-    this.items[asset.name] = file;
+    this.items[asset.type] = { ...this.items[asset.type], [asset.name]: file };
     this.loaded++;
 
     if (this.loaded === this.queue) {

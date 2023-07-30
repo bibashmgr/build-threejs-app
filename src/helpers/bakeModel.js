@@ -6,7 +6,7 @@ export default class BakedModel {
     this.texture = texture;
 
     this.texture.flipY = false;
-    this.texture.encoding = THREE.sRGBEncoding;
+    this.texture.colorSpace = THREE.SRGBColorSpace;
 
     this.material = new THREE.MeshBasicMaterial({
       map: this.texture,

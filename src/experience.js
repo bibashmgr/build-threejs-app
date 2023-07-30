@@ -1,21 +1,21 @@
 import * as THREE from 'three';
-import * as dat from 'dat.gui';
 
 // src
-import Camera from './camera.js';
-import Renderer from './renderer.js';
+import Camera from './Camera.js';
+import Renderer from './Renderer.js';
 
 // utils
-import Sizes from './utils/sizes.js';
-import Time from './utils/time.js';
-import Resources from './utils/resources.js';
-import Debugger from './utils/debugger.js';
+import Debug from './utils/Debug.js';
+import Sizes from './utils/Sizes.js';
+import Mouse from './utils/Mouse.js';
+import Time from './utils/Time.js';
+import Resources from './utils/Resources.js';
 
 // config
-import assets from './config/assets.js';
+import assets from './constants/assets.js';
 
 // world
-import World from './scenes/world.js';
+import World from './scenes/World.js';
 
 export default class Experience {
   static instance;
@@ -26,15 +26,17 @@ export default class Experience {
     }
 
     Experience.instance = this;
+
+    // setup
     this.canvas = canvas;
-    this.scene = new THREE.Scene();
+    this.debug = new Debug();
     this.sizes = new Sizes();
+    this.mouse = new Mouse();
     this.time = new Time();
+    this.scene = new THREE.Scene();
+    this.resources = new Resources(assets);
     this.camera = new Camera();
     this.renderer = new Renderer();
-    this.resources = new Resources(assets);
-    this.gui = new dat.GUI();
-    this.debugger = new Debugger();
 
     this.world = new World();
 

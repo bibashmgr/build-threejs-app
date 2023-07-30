@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 
 // src
-import Experience from './experience.js';
+import Experience from './Experience.js';
 
 export default class Renderer {
   constructor() {
@@ -20,7 +20,6 @@ export default class Renderer {
       antialias: true,
     });
 
-    this.webglRenderer.useLegacyLights = true;
     this.webglRenderer.outputColorSpace = THREE.SRGBColorSpace;
     this.webglRenderer.toneMapping = THREE.CineonToneMapping;
     this.webglRenderer.toneMappingExposure = 1.75;

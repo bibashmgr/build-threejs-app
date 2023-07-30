@@ -1,12 +1,9 @@
-import * as THREE from 'three';
-
-// src
-import Experience from '../experience.js';
+import Experience from '../Experience.js';
 
 // scenes
-import Environment from './environment.js';
-import Box from './box.js';
-import Plane from './plane.js';
+import Environment from './Environment.js';
+import Box from './Box.js';
+import Plane from './Plane.js';
 
 export default class World {
   constructor() {
