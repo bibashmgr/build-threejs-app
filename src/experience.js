@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import * as dat from 'dat.gui';
 
 // src
 import Camera from './camera.js';
@@ -8,7 +9,7 @@ import Renderer from './renderer.js';
 import Sizes from './utils/sizes.js';
 import Time from './utils/time.js';
 import Resources from './utils/resources.js';
-import Helpers from './utils/helpers.js';
+import Debugger from './utils/debugger.js';
 
 // config
 import assets from './config/assets.js';
@@ -32,7 +33,8 @@ export default class Experience {
     this.camera = new Camera();
     this.renderer = new Renderer();
     this.resources = new Resources(assets);
-    this.helpers = new Helpers();
+    this.gui = new dat.GUI();
+    this.debugger = new Debugger();
 
     this.world = new World();
 

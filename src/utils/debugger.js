@@ -3,7 +3,7 @@ import * as THREE from 'three';
 // src
 import Experience from '../experience';
 
-export default class Helpers {
+export default class Debugger {
   constructor() {
     this.experience = new Experience();
     this.scene = this.experience.scene;

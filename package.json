@@ -13,5 +13,9 @@
     "three": "^0.150.1",
     "vite": "^4.1.4",
     "vite-plugin-glsl": "^1.1.2"
+  },
+  "dependencies": {
+    "dat.gui": "^0.7.9",
+    "gsap": "^3.12.2"
   }
 }

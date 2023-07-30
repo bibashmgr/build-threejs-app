@@ -11,15 +11,21 @@ export default class Box {
     this.time = this.experience.time;
     this.resources = this.experience.resources;
 
+    this.paramters = {
+      rotationSpeed: 0.0005,
+      size: 1,
+    };
+
     this.bakeBox();
     this.setBox();
+    this.setDebugger();
   }
 
   bakeBox() {
     this.model = new BakedModel(
       this.resources.items.boxModel,
       this.resources.items.boxTexture,
-      1
+      this.paramters.size
     );
   }
 
@@ -29,10 +35,23 @@ export default class Box {
     this.scene.add(this.actualModel);
   }
 
+  setDebugger() {
+    this.experience.gui
+      .add(this.paramters, 'rotationSpeed', 0, 0.01)
+      .name('Box Speed')
+      .step(0.001);
+    this.experience.gui
+      .add(this.paramters, 'size', 0.5, 2)
+      .onChange((value) => {
+        this.actualModel.scale.set(value, value, value);
+      });
+  }
+
   animateBox() {
-    this.actualModel.rotation.x = this.time.elapsed * 0.0005;
-    this.actualModel.rotation.y = this.time.elapsed * 0.0005;
-    this.actualModel.rotation.z = this.time.elapsed * 0.0005;
+    this.actualModel.rotation.x =
+      this.time.elapsed * this.paramters.rotationSpeed;
+    this.actualModel.rotation.y =
+      this.time.elapsed * this.paramters.rotationSpeed;
   }
 
   resize() {}
