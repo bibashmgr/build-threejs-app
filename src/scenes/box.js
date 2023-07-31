@@ -9,47 +9,50 @@ export default class Box {
     this.scene = this.experience.scene;
     this.time = this.experience.time;
     this.resources = this.experience.resources;
+    this.debug = this.experience.debug;
 
-    this.paramters = {
+    this.parameters = {
       rotationSpeed: 0.0005,
       size: 1,
     };
 
-    this.bakeBox();
-    this.setBox();
+    this.bakeModel();
+    this.setModel();
+
+    if (this.debug.active) {
+      this.setDebugger();
+    }
   }
 
-  bakeBox() {
-    this.model = new BakedModel(
+  bakeModel() {
+    this.bakeModel = new BakedModel(
       this.resources.items.gltfModel.boxModel,
       this.resources.items.texture.boxTexture,
-      this.paramters.size
+      this.parameters.size
     );
   }
 
-  setBox() {
-    this.actualModel = this.model.getModel();
-    this.actualModel.position.y = 1;
-    this.scene.add(this.actualModel);
+  setModel() {
+    this.model = this.bakeModel.getModel();
+    this.model.position.y = 1;
+    this.scene.add(this.model);
   }
 
   setDebugger() {
-    this.experience.gui
-      .add(this.paramters, 'rotationSpeed', 0, 0.01)
+    this.debug.gui
+      .add(this.parameters, 'rotationSpeed', 0, 0.01)
       .name('Box Speed')
       .step(0.001);
-    this.experience.gui
-      .add(this.paramters, 'size', 0.5, 2)
+    this.experience.debug.gui
+      .add(this.parameters, 'size', 0.5, 2)
       .onChange((value) => {
-        this.actualModel.scale.set(value, value, value);
+        this.model.scale.set(value, value, value);
       });
   }
 
   animateBox() {
-    this.actualModel.rotation.x =
-      this.time.elapsed * this.paramters.rotationSpeed;
-    this.actualModel.rotation.y =
-      this.time.elapsed * this.paramters.rotationSpeed;
+    this.model.rotation.x = this.time.elapsed * this.parameters.rotationSpeed;
+    this.model.rotation.y = this.time.elapsed * this.parameters.rotationSpeed;
   }
 
   resize() {}

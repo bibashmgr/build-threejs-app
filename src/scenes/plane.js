@@ -12,11 +12,11 @@ export default class Plane {
     this.scene = this.experience.scene;
     this.resources = this.experience.resources;
 
-    this.setPlane();
+    this.setModel();
   }
 
-  setPlane() {
-    this.geometry = new THREE.PlaneGeometry(10, 10, 100, 100);
+  setModel() {
+    this.geometry = new THREE.BoxGeometry(10, 10, 0.1, 100, 100);
     this.material = new THREE.ShaderMaterial({
       vertexShader: vertexShader,
       fragmentShader: fragmentShader,
@@ -24,10 +24,9 @@ export default class Plane {
       wireframe: false,
       side: THREE.DoubleSide,
     });
-    this.plane = new THREE.Mesh(this.geometry, this.material);
-    this.scene.add(this.plane);
-
-    this.plane.rotation.x = Math.PI / 2;
+    this.model = new THREE.Mesh(this.geometry, this.material);
+    this.model.rotation.x = Math.PI / 2;
+    this.scene.add(this.model);
   }
 
   resize() {}
