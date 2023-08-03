@@ -1,6 +1,5 @@
 import * as THREE from 'three';
 
-// src
 import Camera from './Camera.js';
 import Renderer from './Renderer.js';
 
@@ -31,8 +30,8 @@ export default class Experience {
     this.canvas = canvas;
     this.debug = new Debug();
     this.sizes = new Sizes();
-    this.mouse = new Mouse();
     this.time = new Time();
+    this.mouse = new Mouse();
     this.scene = new THREE.Scene();
     this.resources = new Resources(assets);
     this.camera = new Camera();
