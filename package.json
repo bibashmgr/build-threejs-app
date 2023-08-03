@@ -1,9 +1,9 @@
 {
-  "name": "threejs-boilerplate",
+  "name": "build-threejs-app",
   "private": false,
   "version": "0.0.0",
   "type": "module",
-  "bin": "bin/createApp.js",
+  "bin": "bin/buildApp.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
