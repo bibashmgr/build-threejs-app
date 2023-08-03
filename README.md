@@ -4,11 +4,10 @@ A boilerplate/starter project for quickly building three.js app using Vite & Thr
 
 ## Quick Start:
 
-__Clone the repo:__
+__To create a project, simply run:__
 
-```
-git clone --depth 1 https://github.com/bibashmgr/three-js-boilerplate
-cd three-js-boilerplate
+```bash
+npx build-threejs-app <project-name>
 ```
 
 __Install the dependencies:__
@@ -16,8 +15,6 @@ __Install the dependencies:__
 ```
 npm install
 ```
-
-## Commands:
 
 __Run app in development:__
 
@@ -40,18 +37,18 @@ npm run dev
 
 ```
 public\
-  |--models\
-  |--textures\
+  |--models\          # Contain gltf models
+  |--textures\        # Contain textures
 src\
-  |--constants\     # Environment variables and configuration related things
-  |--helpers\       # Helper classes and functions
-  |--scenes\        # Scenes and Objects logic
-  |--shaders\       # Shaders
-  |--utils\         # Utility classes and functions
-  |--camera.js
-  |--experience.js
-  |--renderer.js
-index.html
+  |--constants\       # Contain environment variables and configuration related things
+  |--helpers\         # Contain helper classes & functions
+  |--scenes\          # Contain scenes & objects
+  |--shaders\         # Contain shaders
+  |--utils\           # Contain utility classes & functions
+  |--Camera.js        # Handle cameras & controls
+  |--Experience.js    # Handle experience & scenes
+  |--Renderer.js      # Handle renderers
+index.html            
 main.js
-style.css
+style.css             # Custom styling
 ```
