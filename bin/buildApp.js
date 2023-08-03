@@ -45,19 +45,14 @@ const setup = async () => {
     execSync('npm install');
 
     // remove files
-    console.log('Removing useless files');
+    console.log('Removing useless files...');
     execSync('npx rimraf ./.git');
     fs.rmSync(path.join(projectPath, 'bin'), { recursive: true });
 
-    console.log('The installation is now complete!');
-
-    console.log('We suggest that you start by typing:');
-    console.log(`    cd ${projectName}`);
-    console.log('    npm install');
-    console.log('    npm run dev');
     console.log();
-    console.log('Enjoy your production-ready Three.js app!');
-    console.log('Check README.md for more info.');
+    console.log('Done. Now run:');
+    console.log(`    cd ${projectName}`);
+    console.log('    npm run dev');
   } catch (error) {
     console.log(error);
   }
