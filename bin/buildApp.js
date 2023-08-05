@@ -5,9 +5,9 @@ import { execSync } from 'child_process';
 
 // validate arguments
 if (process.argv.length < 3) {
-  console.log('You have to provide a name to your app.');
+  console.log('You have to provide a name for your project.');
   console.log('For example :');
-  console.log('    npx build-threejs-app my-app');
+  console.log('    npx build-threejs-app <project-name>');
   process.exit(1);
 }
 
@@ -51,6 +51,7 @@ const setup = async () => {
 
     console.log();
     console.log('Done. Now run:');
+    console.log();
     console.log(`    cd ${projectName}`);
     console.log('    npm run dev');
   } catch (error) {

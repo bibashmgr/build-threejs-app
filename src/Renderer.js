@@ -18,6 +18,7 @@ export default class Renderer {
     this.webglRenderer = new THREE.WebGLRenderer({
       canvas: this.canvas,
       antialias: true,
+      alpha: true,
     });
 
     this.webglRenderer.outputColorSpace = THREE.SRGBColorSpace;

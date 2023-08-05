@@ -7,18 +7,24 @@ A boilerplate/starter project for quickly building three.js app using Vite & Thr
 __To create a project, simply run:__
 
 ```bash
-npx build-threejs-app <project-name>
+npx build-threejs-app@latest <project-name>
+```
+
+__Change directory:__
+
+```bash
+cd <project-name>
 ```
 
 __Install the dependencies:__
 
-```
+```bash
 npm install
 ```
 
 __Run app in development:__
 
-```
+```bash
 npm run dev
 ```
 
@@ -37,15 +43,15 @@ npm run dev
 
 ```
 public\
-  |--models\          # Contain gltf models
+  |--models\          # Contain 3d models
   |--textures\        # Contain textures
 src\
   |--constants\       # Contain environment variables and configuration related things
   |--helpers\         # Contain helper classes & functions
-  |--scenes\          # Contain scenes & objects
+  |--scenes\          # Contain scenes & its objects
   |--shaders\         # Contain shaders
   |--utils\           # Contain utility classes & functions
-  |--Camera.js        # Handle cameras & controls
+  |--Camera.js        # Handle cameras
   |--Experience.js    # Handle experience & scenes
   |--Renderer.js      # Handle renderers
 index.html            

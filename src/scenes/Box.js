@@ -18,10 +18,6 @@ export default class Box {
 
     this.bakeModel();
     this.setModel();
-
-    if (this.debug.active) {
-      this.setDebugger();
-    }
   }
 
   bakeModel() {
@@ -36,18 +32,19 @@ export default class Box {
     this.model = this.bakeModel.getModel();
     this.model.position.y = 1;
     this.scene.add(this.model);
-  }
 
-  setDebugger() {
-    this.debug.gui
-      .add(this.parameters, 'rotationSpeed', 0, 0.01)
-      .name('Box Speed')
-      .step(0.001);
-    this.experience.debug.gui
-      .add(this.parameters, 'size', 0.5, 2)
-      .onChange((value) => {
-        this.model.scale.set(value, value, value);
-      });
+    if (this.debug.active) {
+      this.debug.gui
+        .add(this.parameters, 'rotationSpeed', 0, 0.01)
+        .name('Box Speed')
+        .step(0.001);
+      this.debug.gui
+        .add(this.parameters, 'size', 0.5, 2)
+        .name('Box Size')
+        .onChange((value) => {
+          this.model.scale.set(value, value, value);
+        });
+    }
   }
 
   animateBox() {
