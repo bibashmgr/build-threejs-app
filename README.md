@@ -49,7 +49,7 @@ src\
   |--constants\       # Contain environment variables and configuration related things
   |--helpers\         # Contain helper classes & functions
   |--scenes\          # Contain scenes & its objects
-  |--shaders\         # Contain shaders
+  |--shaders\         # Contain custom shaders
   |--utils\           # Contain utility classes & functions
   |--Camera.js        # Handle cameras
   |--Experience.js    # Handle experience & scenes

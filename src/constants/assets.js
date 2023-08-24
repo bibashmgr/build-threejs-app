@@ -7,11 +7,11 @@ export default [
   {
     name: 'boxModel',
     type: 'gltfModel',
-    path: 'models/box.glb',
+    path: 'models/boxModel.glb',
   },
   {
     name: 'boxTexture',
     type: 'texture',
-    path: 'textures/box_texture.png',
+    path: 'textures/boxTexture.png',
   },
 ];
