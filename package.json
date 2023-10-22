@@ -2,23 +2,37 @@
   "name": "build-threejs-app",
   "description": "A boilerplate/starter project for quickly building three.js app using Vite & Three.",
   "private": false,
-  "version": "0.0.6",
+  "version": "0.1.0",
   "type": "module",
-  "bin": "bin/buildApp.js",
-  "repository": "https://github.com/bibashmgr/threejs-boilerplate.git",
+  "bin": "dist/index.js",
   "author": "Bibash Thapa Magar <bibashmgr>",
   "license": "MIT",
+  "keywords": [
+    "threejs",
+    "boilerplate"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bibashmgr/threejs-boilerplate.git"
+  },
+  "homepage": "https://github.com/bibashmgr/threejs-boilerplate#readme",
+  "bugs": {
+    "url": "https://github.com/bibashmgr/threejs-boilerplate.git/issues"
+  },
+  "files": [
+    "dist",
+    "templates",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "npx tsc",
+    "test": "npx tsc && node dist/index.js"
   },
   "devDependencies": {
-    "dat.gui": "^0.7.9",
-    "events": "^3.3.0",
-    "gsap": "^3.12.2",
-    "three": "^0.155.0",
-    "vite": "^4.4.7",
-    "vite-plugin-glsl": "^1.1.2"
+    "@types/prompts": "^2.4.7",
+    "kolorist": "^1.8.0",
+    "prompts": "^2.4.2",
+    "typescript": "^5.2.2"
   }
 }
