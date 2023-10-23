@@ -51,10 +51,10 @@ src\
   |--scenes\          # Contain scenes & its objects
   |--shaders\         # Contain custom shaders
   |--utils\           # Contain utility classes & functions
-  |--Camera.js        # Handle cameras
-  |--Experience.js    # Handle experience & scenes
-  |--Renderer.js      # Handle renderers
+  |--Camera.ts        # Handle cameras
+  |--Experience.ts    # Handle experience & scenes
+  |--Renderer.ts      # Handle renderers
 index.html            
-main.js
+main.ts
 style.css             # Custom styling
 ```

@@ -1,4 +1,4 @@
-# Three.js Boilerplate
+# Build ThreeJS App
 
 A boilerplate/starter project for quickly building three.js app using Vite & Three.
 
