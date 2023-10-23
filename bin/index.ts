@@ -95,6 +95,10 @@ const copyDir = (dirPath: string, dirName: string): void => {
     const fileStat = fs.statSync(filePath);
 
     if (fileStat.isFile()) {
+      if (file === "package-lock.json") {
+        return;
+      }
+
       fs.copyFileSync(filePath, path.join(dirName, file));
     } else if (fileStat.isDirectory()) {
       if (file === "node_modules") {
