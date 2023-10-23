@@ -1,7 +1,7 @@
-import Experience from '../Experience.js';
+import Experience from "../Experience.js";
 
 // helpers
-import BakedModel from '../helpers/BakeModel.js';
+import ModelBaker from "../helpers/ModelBaker.js";
 
 export default class Box {
   constructor() {
@@ -21,7 +21,7 @@ export default class Box {
   }
 
   bakeModel() {
-    this.bakeModel = new BakedModel(
+    this.bakedModel = new ModelBaker(
       this.resources.items.gltfModel.boxModel,
       this.resources.items.texture.boxTexture,
       this.parameters.size
@@ -35,12 +35,12 @@ export default class Box {
 
     if (this.debug.active) {
       this.debug.gui
-        .add(this.parameters, 'rotationSpeed', 0, 0.01)
-        .name('Box Speed')
+        .add(this.parameters, "rotationSpeed", 0, 0.01)
+        .name("Box Speed")
         .step(0.001);
       this.debug.gui
-        .add(this.parameters, 'size', 0.5, 2)
-        .name('Box Size')
+        .add(this.parameters, "size", 0.5, 2)
+        .name("Box Size")
         .onChange((value) => {
           this.model.scale.set(value, value, value);
         });

@@ -1,7 +1,14 @@
-import * as THREE from 'three';
+import * as THREE from "three";
 
-export default class BakedModel {
-  constructor(model, texture, scale) {
+import { GLTF } from "three/examples/jsm/loaders/GLTFLoader.js";
+
+export default class ModelBaker {
+  model: GLTF;
+  texture: THREE.Texture;
+  scale: number;
+  material: THREE.MeshBasicMaterial;
+
+  constructor(model: GLTF, texture: THREE.Texture, scale: number) {
     this.model = model;
     this.texture = texture;
 
@@ -23,7 +30,7 @@ export default class BakedModel {
     return this;
   }
 
-  getModel() {
+  getModel(): THREE.Group<THREE.Object3DEventMap> {
     return this.model.scene;
   }
 }
