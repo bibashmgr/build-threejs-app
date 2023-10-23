@@ -9,15 +9,16 @@
   "license": "MIT",
   "keywords": [
     "threejs",
-    "boilerplate"
+    "boilerplate",
+    "build-threejs-app"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bibashmgr/threejs-boilerplate.git"
+    "url": "git+https://github.com/bibashmgr/build-threejs-app.git"
   },
-  "homepage": "https://github.com/bibashmgr/threejs-boilerplate#readme",
+  "homepage": "https://github.com/bibashmgr/build-threejs-app#readme",
   "bugs": {
-    "url": "https://github.com/bibashmgr/threejs-boilerplate.git/issues"
+    "url": "https://github.com/bibashmgr/build-threejs-app/issues"
   },
   "files": [
     "dist",
