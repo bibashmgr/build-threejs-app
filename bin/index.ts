@@ -59,12 +59,11 @@ const init = async () => {
 
   const { projectName, template } = result;
 
-  const root = path.join(parentDir, projectName);
-  fs.mkdirSync(root);
+  fs.mkdirSync(projectName);
 
   const templateDir = getTemplateDir(template);
 
-  console.log(`\nScaffolding project in ${root}...`);
+  console.log(`\nScaffolding project...`);
   copyDir(templateDir, projectName);
 
   console.log(`\nDone. Now run:\n`);
