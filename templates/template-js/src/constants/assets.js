@@ -1,17 +1,12 @@
-export default [
-  // {
-  //   name: 'asset_name',
-  //   type: ['gltfModel', 'texture', 'cubeTexture', 'audio' ,'font', 'video'],
-  //   path: 'asset_path',
-  // },
+export const assets = [
   {
-    name: 'boxModel',
-    type: 'gltfModel',
-    path: 'models/boxModel.glb',
+    name: "boxModel",
+    type: "gltfModel",
+    path: "models/boxModel.glb",
   },
   {
-    name: 'boxTexture',
-    type: 'texture',
-    path: 'textures/boxTexture.png',
+    name: "boxTexture",
+    type: "texture",
+    path: "textures/boxTexture.png",
   },
 ];

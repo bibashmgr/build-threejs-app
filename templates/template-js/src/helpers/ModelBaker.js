@@ -1,6 +1,6 @@
-import * as THREE from 'three';
+import * as THREE from "three";
 
-export default class BakedModel {
+export default class ModelBaker {
   constructor(model, texture, scale) {
     this.model = model;
     this.texture = texture;

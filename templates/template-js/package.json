@@ -1,12 +1,8 @@
 {
-  "name": "build-threejs-app",
-  "description": "A boilerplate/starter project for quickly building three.js app using Vite & Three.",
+  "name": "template-js",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.0",
   "type": "module",
-  "repository": "https://github.com/bibashmgr/threejs-boilerplate.git",
-  "author": "Bibash Thapa Magar <bibashmgr>",
-  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
