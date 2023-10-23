@@ -7,7 +7,7 @@ A boilerplate/starter project for quickly building three.js app using Vite & Thr
 __To create a project, simply run:__
 
 ```bash
-npx build-threejs-app@latest
+npx build-threejs-app
 ```
 
 __Change directory:__
