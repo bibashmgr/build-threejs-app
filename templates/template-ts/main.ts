@@ -1,6 +1,3 @@
-import "./style.css";
-
-// src
 import Experience from "./src/Experience.ts";
 
 new Experience(
