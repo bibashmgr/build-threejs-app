@@ -1,8 +1,8 @@
-# Build ThreeJS App
+## Build ThreeJS App
 
 A boilerplate/starter project for quickly building three.js app using Vite & Three.
 
-## Quick Start:
+### Quick Start:
 
 __To create a project, simply run:__
 

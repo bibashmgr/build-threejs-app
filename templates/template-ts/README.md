@@ -1,8 +1,8 @@
-# Build ThreeJS App
+## Build ThreeJS App
 
 A boilerplate/starter project for quickly building three.js app using Vite & Three.
 
-## Quick Start:
+### Quick Start:
 
 __To create a project, simply run:__
 
@@ -28,7 +28,7 @@ __Run app in development:__
 npm run dev
 ```
 
-## Dependencies:
+### Dependencies:
 
 | Package                                         | Version                                                                          |
 | ----------------------------------------------- | :------------------------------------------------------------------------------- |
@@ -39,7 +39,7 @@ npm run dev
 | [gsap](packages/gsap)   | ![vite-plugin=glsl](https://img.shields.io/npm/v/gsap?label=%20)     |
 | [dat.gui](packages/dat.gui)   | ![vite-plugin=glsl](https://img.shields.io/npm/v/dat.gui?label=%20)     |
 
-## Project Structure:
+### Project Structure:
 
 ```
 public\
