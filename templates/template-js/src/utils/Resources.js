@@ -26,16 +26,16 @@ export default class Resources extends EventEmitter {
   }
 
   setLoaders() {
-    this.loaders = {};
-    this.loaders.gltfLoader = new GLTFLoader();
-    this.loaders.dracoLoader = new DRACOLoader();
-    this.loaders.dracoLoader.setDecoderPath("/draco/");
-    this.loaders.gltfLoader.setDRACOLoader(this.loaders.dracoLoader);
+    let dracoLoader = new DRACOLoader();
+    dracoLoader.setDecoderPath("/draco/");
 
-    this.loaders.textureLoader = new THREE.TextureLoader();
-    this.loaders.cubeTextureLoader = new THREE.CubeTextureLoader();
-    this.loaders.audioLoader = new THREE.AudioLoader();
-    this.loaders.fontLoader = new FontLoader();
+    this.loaders = {
+      gltfLoader: new GLTFLoader().setDRACOLoader(dracoLoader),
+      textureLoader: new THREE.TextureLoader(),
+      cubeTextureLoader: new THREE.CubeTextureLoader(),
+      audioLoader: new THREE.AudioLoader(),
+      fontLoader: new FontLoader(),
+    };
   }
 
   startLoading() {
