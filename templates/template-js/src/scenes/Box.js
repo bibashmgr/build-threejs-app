@@ -29,7 +29,7 @@ export default class Box {
   }
 
   setModel() {
-    this.model = this.bakeModel.getModel();
+    this.model = this.bakedModel.getModel();
     this.model.position.y = 1;
     this.scene.add(this.model);
 
